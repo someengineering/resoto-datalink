@@ -1,6 +1,6 @@
 [project]
 name = "resotodatalink"
-version = "1.2.0"
+version = "1.2.1"
 authors = [{name="Some Engineering Inc."}]
 description = "Data Pipelines for Resoto infrastructure data."
 license = {file="LICENSE"}
@@ -32,7 +32,7 @@ dependencies = [
     "resotoclient>=1.5.0",
     "resotolib",
     "rich",
-    "sqlalchemy>=1.4.48,<2",
+    "sqlalchemy",
 ]
 
 [project.optional-dependencies]
@@ -46,7 +46,6 @@ postgres = [ "psycopg2-binary" ]
 # All extra dependencies
 extra = [
     "boto3",
-    "urllib3 < 2", # boto3 requires urllib3 < 2
     "google-cloud-storage",
     "pymysql",
     "psycopg2-binary",

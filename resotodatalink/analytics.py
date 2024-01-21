@@ -5,7 +5,7 @@ from datetime import datetime
 from typing import Union
 
 from requests import get
-from posthog import Client
+from posthog.client import Client
 
 log = logging.getLogger("resoto.datalink")
 
@@ -38,7 +38,7 @@ class PosthogEventSender(AnalyticsEventSender):
     """
 
     def __init__(self) -> None:
-        self.client = Client(host="https://analytics.some.engineering", api_key="")
+        self.client = Client(host="https://analytics.some.engineering", api_key="")  # type: ignore
         self.uid = uuid.uuid4()
 
     def capture(self, kind: str, **context: Union[str, int, float]) -> None:
@@ -47,7 +47,7 @@ class PosthogEventSender(AnalyticsEventSender):
             self.client.api_key = api_key
             for consumer in self.client.consumers:
                 consumer.api_key = api_key
-        self.client.capture(
+        self.client.capture(  # type: ignore
             distinct_id=self.uid,
             event="datalink." + kind,
             properties={
@@ -59,4 +59,4 @@ class PosthogEventSender(AnalyticsEventSender):
         )
 
     def flush(self) -> None:
-        self.client.flush()
+        self.client.flush()  # type: ignore
