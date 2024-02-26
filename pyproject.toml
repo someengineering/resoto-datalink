@@ -78,7 +78,7 @@ test = [
     "pytest-runner",
     "tox",
     "wheel",
-#    "fix-plugin-example-collector"
+    "fix-plugin-example-collector"
 ]
 
 [project.urls]
