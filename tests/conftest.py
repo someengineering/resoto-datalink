@@ -1,19 +1,19 @@
 from queue import Queue
 from typing import List, Iterator
 
-from resoto_plugin_example_collector import ExampleAccount, ExampleRegion, ExampleInstance, ExampleVolume
-from resotoclient.models import Model, Kind, Property
+from fix_plugin_example_collector import ExampleAccount, ExampleRegion, ExampleInstance, ExampleVolume
+from fixclient.models import Model, Kind, Property
 from pytest import fixture
-from resotolib.baseresources import GraphRoot, Cloud
-from resotolib.core.actions import CoreFeedback
-from resotolib.graph import Graph
-from resotolib.types import Json
+from fixlib.baseresources import GraphRoot, Cloud
+from fixlib.core.actions import CoreFeedback
+from fixlib.graph import Graph
+from fixlib.types import Json
 from sqlalchemy.engine import create_engine, Engine
 
-from resotodatalink.sql import SqlDefaultUpdater
-from resotodatalink.arrow.model import ArrowModel
-from resotodatalink.arrow.writer import ArrowWriter
-from resotodatalink.arrow.config import ArrowOutputConfig, FileDestination
+from fixdatalink.sql import SqlDefaultUpdater
+from fixdatalink.arrow.model import ArrowModel
+from fixdatalink.arrow.writer import ArrowWriter
+from fixdatalink.arrow.config import ArrowOutputConfig, FileDestination
 from pathlib import Path
 import shutil
 import uuid

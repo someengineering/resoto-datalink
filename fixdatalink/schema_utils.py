@@ -1,12 +1,12 @@
 import inspect
 from typing import List, Dict, Tuple
 
-from resotoclient.models import Property, Kind, Model
-from resotolib import baseresources
-from resotolib.baseplugin import BaseCollectorPlugin
-from resotolib.baseresources import BaseResource, EdgeType
-from resotolib.core.model_export import node_to_dict
-from resotolib.types import Json
+from fixclient.models import Property, Kind, Model
+from fixlib import baseresources
+from fixlib.baseplugin import BaseCollectorPlugin
+from fixlib.baseresources import BaseResource, EdgeType
+from fixlib.core.model_export import node_to_dict
+from fixlib.types import Json
 
 # This set will hold the names of all "base" resources
 # Since that are abstract classes, there will be no instances of them - hence we do not need a table for them.

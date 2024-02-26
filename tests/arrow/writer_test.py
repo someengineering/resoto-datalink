@@ -1,6 +1,6 @@
 import pyarrow as pa
 
-from resotodatalink.arrow.writer import (
+from fixdatalink.arrow.writer import (
     collect_normalization_paths,
     normalize,
     ParquetMap,

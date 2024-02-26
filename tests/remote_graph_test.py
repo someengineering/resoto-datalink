@@ -1,11 +1,11 @@
 from typing import Iterator
 
-from resotoclient import JsObject
-from resotolib.core.actions import CoreFeedback
-from resotolib.core.model_export import node_to_dict
-from resotolib.graph import Graph
+from fixclient import JsObject
+from fixlib.core.actions import CoreFeedback
+from fixlib.core.model_export import node_to_dict
+from fixlib.graph import Graph
 
-from resotodatalink.remote_graph import RemoteGraphCollector
+from fixdatalink.remote_graph import RemoteGraphCollector
 
 
 def test_remote_graph_collector(example_collector_graph: Graph, core_feedback: CoreFeedback) -> None:

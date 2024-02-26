@@ -3,9 +3,9 @@ from abc import ABC, abstractmethod
 from datetime import datetime, date
 from typing import List, Any, Type, Tuple, Dict, Iterator, Optional, Union
 
-from resotoclient.models import Kind, Model, Property
-from resotolib.types import Json
-from resotolib.utils import UTC_Date_Format
+from fixclient.models import Kind, Model, Property
+from fixlib.types import Json
+from fixlib.utils import UTC_Date_Format
 from sqlalchemy import (
     Boolean,
     Column,
@@ -25,8 +25,8 @@ from sqlalchemy.engine import Engine, Connection, Dialect
 from sqlalchemy.sql.ddl import DropTable, DropConstraint
 from sqlalchemy.sql.dml import ValuesBase
 
-from resotodatalink import EngineConfig
-from resotodatalink.schema_utils import (
+from fixdatalink import EngineConfig
+from fixdatalink.schema_utils import (
     base_kinds,
     temp_prefix,
     carz_access,
@@ -34,10 +34,10 @@ from resotodatalink.schema_utils import (
     get_link_table_name,
     kind_properties,
 )
-from resotolib.json import value_in_path
+from fixlib.json import value_in_path
 from sqlalchemy import create_engine
 
-log = logging.getLogger("resoto.datalink")
+log = logging.getLogger("fix.datalink")
 
 
 class DateTimeString(TypeDecorator):  # type: ignore

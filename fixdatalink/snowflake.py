@@ -2,18 +2,18 @@ import json
 import logging
 from typing import Any, List, Iterator
 
-from resotoclient import Model
-from resotolib.types import Json
+from fixclient import Model
+from fixlib.types import Json
 from snowflake.sqlalchemy import ARRAY, OBJECT
 from sqlalchemy import Integer, Float, String, Boolean, column
 from sqlalchemy import select
 from sqlalchemy.sql import Values
 from sqlalchemy.sql.dml import ValuesBase
 
-from resotodatalink.schema_utils import kind_properties, get_table_name
-from resotodatalink.sql import SqlDefaultUpdater, DialectUpdater
+from fixdatalink.schema_utils import kind_properties, get_table_name
+from fixdatalink.sql import SqlDefaultUpdater, DialectUpdater
 
-log = logging.getLogger("resoto.datalink")
+log = logging.getLogger("fix.datalink")
 
 
 def kind_to_snowflake_type(kind_name: str, model: Model, **kwargs: Any) -> Any:  # Type[TypeEngine[Any]]

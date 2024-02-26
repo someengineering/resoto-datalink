@@ -1,6 +1,6 @@
 import pyarrow as pa
-from resotoclient.models import Model
-from resotodatalink.schema_utils import kind_properties
+from fixclient.models import Model
+from fixdatalink.schema_utils import kind_properties
 
 
 def parquet_pyarrow_type(kind: str, model: Model) -> pa.lib.DataType:

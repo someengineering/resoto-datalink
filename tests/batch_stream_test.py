@@ -1,4 +1,4 @@
-from resotodatalink.batch_stream import BatchStream
+from fixdatalink.batch_stream import BatchStream
 import pytest
 
 
