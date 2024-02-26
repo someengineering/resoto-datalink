@@ -4,26 +4,26 @@ from logging import getLogger
 from typing import List, Tuple, Set, Optional, AsyncIterator, Union, cast, Dict, TypeVar, Awaitable, Any
 
 import jsons
-from resotoclient import Kind, Model
-from resotolib.baseplugin import BaseCollectorPlugin
-from resotolib.baseresources import BaseResource, EdgeType
-from resotolib.core.actions import CoreFeedback
-from resotolib.types import Json
+from fixclient import Kind, Model
+from fixlib.baseplugin import BaseCollectorPlugin
+from fixlib.baseresources import BaseResource, EdgeType
+from fixlib.core.actions import CoreFeedback
+from fixlib.types import Json
 from sqlalchemy import create_engine, text
 
-from resotodatalink import EngineConfig
-from resotodatalink.arrow.config import ArrowOutputConfig
-from resotodatalink.batch_stream import BatchStream
-from resotodatalink.sql import sql_updater
+from fixdatalink import EngineConfig
+from fixdatalink.arrow.config import ArrowOutputConfig
+from fixdatalink.batch_stream import BatchStream
+from fixdatalink.sql import sql_updater
 
 try:
-    from resotodatalink.arrow.model import ArrowModel
-    from resotodatalink.arrow.writer import ArrowWriter
+    from fixdatalink.arrow.model import ArrowModel
+    from fixdatalink.arrow.writer import ArrowWriter
 except ImportError:
     ArrowModel = type(None)  # type: ignore
     ArrowWriter = type(None)  # type: ignore
 
-log = getLogger("resoto.datalink")
+log = getLogger("fix.datalink")
 T = TypeVar("T")
 
 

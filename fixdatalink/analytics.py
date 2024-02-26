@@ -7,7 +7,7 @@ from typing import Union
 from requests import get
 from posthog.client import Client
 
-log = logging.getLogger("resoto.datalink")
+log = logging.getLogger("fix.datalink")
 
 
 class AnalyticsEventSender(ABC):

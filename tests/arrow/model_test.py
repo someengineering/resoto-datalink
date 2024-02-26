@@ -1,6 +1,6 @@
-from resotoclient.models import Model
+from fixclient.models import Model
 
-from resotodatalink.arrow.model import ArrowModel
+from fixdatalink.arrow.model import ArrowModel
 
 
 def test_create_schema(model: Model) -> None:

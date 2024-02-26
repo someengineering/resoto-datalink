@@ -1,12 +1,12 @@
 from itertools import chain
 
-from resotoclient.models import Model
+from fixclient.models import Model
 from sqlalchemy import MetaData
 from sqlalchemy.engine import Engine
 from sqlalchemy.orm import Session
 from sqlalchemy.types import VARCHAR, Text
 
-from resotodatalink.sql import SqlDefaultUpdater
+from fixdatalink.sql import SqlDefaultUpdater
 
 
 def test_create_schema(model: Model, engine: Engine) -> None:

@@ -5,14 +5,14 @@ from tempfile import TemporaryDirectory
 from typing import Dict, List
 
 import pytest
-from resoto_plugin_example_collector import ExampleCollectorPlugin
-from resotolib.core.actions import CoreFeedback
+from fix_plugin_example_collector import ExampleCollectorPlugin
+from fixlib.core.actions import CoreFeedback
 from sqlalchemy import MetaData, create_engine
 from sqlalchemy.orm import Session
 
-from resotodatalink import EngineConfig
-from resotodatalink.arrow.config import ArrowOutputConfig, FileDestination
-from resotodatalink.collect_plugins import collect_sql, collect_to_file, execute_sql
+from fixdatalink import EngineConfig
+from fixdatalink.arrow.config import ArrowOutputConfig, FileDestination
+from fixdatalink.collect_plugins import collect_sql, collect_to_file, execute_sql
 
 
 @pytest.mark.asyncio

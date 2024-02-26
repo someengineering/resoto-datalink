@@ -2,9 +2,9 @@ from typing import Dict, Iterator
 from typing import Optional, ClassVar
 
 from attr import define, field
-from resotoclient import ResotoClient, JsObject
-from resotolib.baseplugin import BaseCollectorPlugin
-from resotolib.baseresources import (
+from fixclient import FixClient, JsObject
+from fixlib.baseplugin import BaseCollectorPlugin
+from fixlib.baseresources import (
     BaseResource,
     Cloud,
     EdgeType,
@@ -12,21 +12,21 @@ from resotolib.baseresources import (
     UnknownRegion,
     UnknownAccount,
 )
-from resotolib.config import Config
-from resotolib.core.actions import CoreFeedback
-from resotolib.core.model_export import node_from_dict
-from resotolib.graph import Graph
-from resotolib.json import value_in_path
-from resotolib.logger import log
-from resotolib.types import Json
+from fixlib.config import Config
+from fixlib.core.actions import CoreFeedback
+from fixlib.core.model_export import node_from_dict
+from fixlib.graph import Graph
+from fixlib.json import value_in_path
+from fixlib.logger import log
+from fixlib.types import Json
 
 
 @define
 class RemoteGraphConfig:
     kind: ClassVar[str] = "remote_graph"
-    resoto_url: str = field(default="https://localhost:8900", metadata={"description": "URL of the resoto server"})
-    psk: Optional[str] = field(default=None, metadata={"description": "Pre-shared key for the resoto server"})
-    graph: str = field(default="resoto", metadata={"description": "Name of the graph to use"})
+    fix_url: str = field(default="https://localhost:8900", metadata={"description": "URL of the fix server"})
+    psk: Optional[str] = field(default=None, metadata={"description": "Pre-shared key for the fix server"})
+    graph: str = field(default="fix", metadata={"description": "Name of the graph to use"})
     search: Optional[str] = field(
         default=None, metadata={"description": "Search string to filter resources. None to get all resources."}
     )
@@ -58,7 +58,7 @@ class RemoteGraphCollector(BaseCollectorPlugin):
 
     def _collect_remote_graph(self) -> Graph:
         config: RemoteGraphConfig = Config.remote_graph
-        client = ResotoClient(config.resoto_url, psk=config.psk)
+        client = FixClient(config.fix_url, psk=config.psk)
         search = config.search or "is(graph_root) -[2:]->"
         return self._collect_from_graph_iterator(client.search_graph(search, graph=config.graph))
 

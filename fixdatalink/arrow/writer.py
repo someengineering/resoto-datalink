@@ -11,10 +11,10 @@ import pyarrow as pa
 import pyarrow.csv as csv
 import pyarrow.parquet as pq
 from google.cloud import storage
-from resotolib.json import value_in_path
-from resotolib.types import Json
+from fixlib.json import value_in_path
+from fixlib.types import Json
 
-from resotodatalink.arrow.config import (
+from fixdatalink.arrow.config import (
     ArrowOutputConfig,
     FileDestination,
     CloudBucketDestination,
@@ -22,8 +22,8 @@ from resotodatalink.arrow.config import (
     GCSBucket,
     ArrowDestination,
 )
-from resotodatalink.arrow.model import ArrowModel
-from resotodatalink.schema_utils import get_table_name, get_link_table_name, carz_access
+from fixdatalink.arrow.model import ArrowModel
+from fixdatalink.schema_utils import get_table_name, get_link_table_name, carz_access
 
 
 class WriteResult(NamedTuple):
@@ -233,7 +233,7 @@ def new_writer(table_name: str, schema: pa.Schema, output_config: ArrowOutputCon
         result_dir = ensure_path(output_config.destination.path)
     else:
         hashed_url = sha(output_config.destination.bucket_name)
-        result_dir = ensure_path(Path(f"/tmp/resotodatalink-uploads/{hashed_url}"))
+        result_dir = ensure_path(Path(f"/tmp/fixdatalink-uploads/{hashed_url}"))
 
     file_writer_format: Union[Parquet, CSV]
     file_path: Path

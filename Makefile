@@ -56,9 +56,9 @@ clean-env: ## remove environment
 	rm -fr venv-pypy
 
 lint: ## static code analysis
-	black --line-length 120 --check resotodatalink tests
-	flake8 resotodatalink
-	mypy --python-version 3.9 --strict resotodatalink tests
+	black --line-length 120 --check fixdatalink tests
+	flake8 fixdatalink
+	mypy --python-version 3.9 --strict fixdatalink tests
 
 test: ## run tests quickly with the default Python
 	pytest
@@ -67,7 +67,7 @@ test-all: ## run tests on every Python version with tox
 	tox
 
 coverage: ## check code coverage quickly with the default Python
-	coverage run --source resotolib -m pytest
+	coverage run --source fixlib -m pytest
 	coverage combine
 	coverage report -m
 	coverage html
@@ -75,7 +75,7 @@ coverage: ## check code coverage quickly with the default Python
 
 setup:
 	rm -fr venv
-	python3 -m venv venv --prompt "resotodatalink venv"
+	python3 -m venv venv --prompt "fixdatalink venv"
 	./venv/bin/python3 -m pip install --upgrade pip tox
 	./venv/bin/pip3 install -r requirements-all.txt
 	./venv/bin/pip3 install -e "."
@@ -84,7 +84,7 @@ setup:
 
 update:
 	rm -fr venv
-	python3 -m venv venv --prompt "resotodatalink venv"
+	python3 -m venv venv --prompt "fixdatalink venv"
 	./venv/bin/python3 -m pip install --upgrade pip tox
 	./venv/bin/pip3 install -e ".[dev,test,snowflake,mysql,parquet,postgres]"
 	pip-compile -q --no-annotate --resolver=backtracking --upgrade --allow-unsafe --no-header -o requirements.txt --extra=extra

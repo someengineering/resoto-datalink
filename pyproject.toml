@@ -1,8 +1,8 @@
 [project]
-name = "resotodatalink"
-version = "1.2.1"
+name = "fixdatalink"
+version = "2.0.0"
 authors = [{name="Some Engineering Inc."}]
-description = "Data Pipelines for Resoto infrastructure data."
+description = "Data Pipelines for Fix infrastructure data."
 license = {file="LICENSE"}
 requires-python = ">=3.9"
 classifiers = [
@@ -29,8 +29,8 @@ keywords = ["data source", "data sink", "data synchronization", "data pipeline"]
 
 dependencies = [
     "networkx",
-    "resotoclient>=1.5.0",
-    "resotolib",
+    "fixclient>=2.0.0",
+    "fixinventorylib",
     "rich",
     "sqlalchemy",
 ]
@@ -78,16 +78,16 @@ test = [
     "pytest-runner",
     "tox",
     "wheel",
-    "resoto-plugin-example-collector"
+    "fix-plugin-example-collector"
 ]
 
 [project.urls]
-Documentation = "https://resoto.com"
-Source = "https://github.com/someengineering/resotodatalink"
+Documentation = "https://fix.com"
+Source = "https://github.com/someengineering/fixdatalink"
 
 [build-system]
 requires = ["setuptools>=67.8.0", "wheel>=0.40.0", "build>=0.10.0"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.package-data]
-resotodatalink = ["py.typed"]
+fixdatalink = ["py.typed"]

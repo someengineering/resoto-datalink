@@ -2,10 +2,10 @@ from collections import defaultdict
 from itertools import chain
 from typing import AsyncIterator, Any, Callable, Dict, List, Iterator, Union
 
-from resotolib.baseplugin import BaseCollectorPlugin
-from resotolib.baseresources import EdgeType
+from fixlib.baseplugin import BaseCollectorPlugin
+from fixlib.baseresources import EdgeType
 
-from resotodatalink.schema_utils import prepare_node, prepare_edge
+from fixdatalink.schema_utils import prepare_node, prepare_edge
 
 
 async def sync_to_async_iterator(it: Iterator[Any]) -> AsyncIterator[Any]:

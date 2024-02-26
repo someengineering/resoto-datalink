@@ -1,8 +1,8 @@
 import shutil
 from typing import Optional, Dict, Any, List
 
-from resotolib.core.progress import ProgressTree, Progress
-from resotolib.types import Json
+from fixlib.core.progress import ProgressTree, Progress
+from fixlib.types import Json
 from rich.console import Group
 from rich.markdown import Markdown
 from rich.text import Text
