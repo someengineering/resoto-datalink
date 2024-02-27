@@ -1,6 +1,6 @@
 [project]
 name = "fixdatalink"
-version = "2.0.0"
+version = "2.0.1"
 authors = [{name="Some Engineering Inc."}]
 description = "Data Pipelines for Fix infrastructure data."
 license = {file="LICENSE"}
@@ -29,7 +29,7 @@ keywords = ["data source", "data sink", "data synchronization", "data pipeline"]
 
 dependencies = [
     "networkx",
-    "fixclient>=2.0.0",
+    "fixinventoryclient>=2.0.0",
     "fixinventorylib",
     "rich",
     "sqlalchemy",

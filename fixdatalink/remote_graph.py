@@ -2,7 +2,7 @@ from typing import Dict, Iterator
 from typing import Optional, ClassVar
 
 from attr import define, field
-from fixclient import FixClient, JsObject
+from fixclient import FixInventoryClient, JsObject
 from fixlib.baseplugin import BaseCollectorPlugin
 from fixlib.baseresources import (
     BaseResource,
@@ -58,7 +58,7 @@ class RemoteGraphCollector(BaseCollectorPlugin):
 
     def _collect_remote_graph(self) -> Graph:
         config: RemoteGraphConfig = Config.remote_graph
-        client = FixClient(config.fix_url, psk=config.psk)
+        client = FixInventoryClient(config.fix_url, psk=config.psk)
         search = config.search or "is(graph_root) -[2:]->"
         return self._collect_from_graph_iterator(client.search_graph(search, graph=config.graph))
 
