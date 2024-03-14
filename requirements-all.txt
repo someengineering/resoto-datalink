@@ -23,7 +23,7 @@ cherrypy==18.9.0
 click==8.1.7
 colorama==0.4.6
 coverage[toml]==7.4.3
-cryptography==40.0.2
+cryptography==42.0.4
 dill==0.3.8
 distlib==0.3.8
 filelock==3.13.1
