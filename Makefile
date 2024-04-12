@@ -58,7 +58,7 @@ clean-env: ## remove environment
 lint: ## static code analysis
 	black --line-length 120 --check fixdatalink tests
 	flake8 fixdatalink
-	mypy --python-version 3.9 --strict fixdatalink tests
+	mypy --python-version 3.11 --strict fixdatalink tests
 
 test: ## run tests quickly with the default Python
 	pytest
