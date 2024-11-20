@@ -68,7 +68,7 @@ class SnowflakeUpdater(SqlDefaultUpdater):
         # insert into TBL(col_string, col_json) SELECT column1, parse_json(column2) from values('a', '{"b":1}');
         # All json and array elements need to be json encoded and parsed on the server side again.
         for num, prop in enumerate(kind_props):
-            name = f"column{num+1}"
+            name = f"column{num + 1}"
             select_array.append(prop.name)
             snowflake_kind = kind_to_snowflake_type(prop.kind, self.model)
             if snowflake_kind in (ARRAY, OBJECT):
