@@ -72,7 +72,7 @@ rich==13.9.4
 rsa==4.9
 s3transfer==0.10.3
 six==1.16.0
-snowflake-connector-python==3.12.3
+snowflake-connector-python==3.13.1
 snowflake-sqlalchemy==1.6.1
 sortedcontainers==2.4.0
 sqlalchemy==1.4.54
